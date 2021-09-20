@@ -1,0 +1,6 @@
+sample_id	group_label
+./I_WT_NF54b/I_WT_NF54b.Aligned.sortedByCoord.out.bam	WT
+./N_WT_NF54a/N_WT_NF54a.Aligned.sortedByCoord.out.bam	WT
+./O_KO_KOc1a/O_KO_KOc1a.Aligned.sortedByCoord.out.bam	KO
+./J_KO_KOc1b/J_KO_KOc1b.Aligned.sortedByCoord.out.bam	KO
+./P_KO_KOc8/P_KO_KOc8.Aligned.sortedByCoord.out.bam	KO

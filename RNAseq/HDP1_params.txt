@@ -1,0 +1,12 @@
+RefGenomeDirectory	/home/kafsacklab/seq/genomes/pfalciparum/PlasmoDB-40/
+RefGenomeFasta	/home/kafsacklab/seq/genomes/pfalciparum/PlasmoDB-40/PlasmoDB-40_Pfalciparum3D7_Genome.fasta
+RefGenomeGTF	/home/kafsacklab/seq/genomes/pfalciparum/PlasmoDB-40/PlasmoDB-40_Pfalciparum3D7.gtf
+OutputDirectory	./
+
+step	program	overwrite?	parameters
+fastqc	fastqc	F		--threads 30 --quiet	
+trim	cutadapt	F	-q 20 --minimum-length 20 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+align	STAR	F	 --runThreadN 30 --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --outSAMstrandField intronMotif --sjdbGTFfile /home/kafsacklab/seq/genomes/pfalciparum/PlasmoDB-40/PlasmoDB-40_Pfalciparum3D7.gtf --sjdbGTFtagExonParentTranscript Parent
+cufflinks	cufflinks	F	--num-threads 30 --no-update-check --library-type fr-firststrand --multi-read-correct --quiet
+cuffmerge	cuffmerge	F	--ref-gtf /home/kafsacklab/seq/genomes/pfalciparum/PlasmoDB-40/PlasmoDB-40_Pfalciparum3D7.gtf
+cuffdiff	cuffdiff	F	--num-threads 30 --no-update-check  --library-type fr-firststrand --multi-read-correct --quiet 
