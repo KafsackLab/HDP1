@@ -151,7 +151,7 @@ system('chmod u+x runme.sh')
 # system("./runme.sh&") 
 
 ##### SORT BAMS BY NAME ##### ##### 
-SysCommands<-paste("samtools sort -n -l 9 --threads 30 -O BAM --reference ./genome/PlasmoDB-51_Pfalciparum3D7_Genome.fasta -o", paste0("./bams/",sample,"sorted.bam"),paste0("./bams/",sample,"bam"))
+#SysCommands<-paste("samtools sort -n -l 9 --threads 30 -O BAM --reference ./genome/PlasmoDB-51_Pfalciparum3D7_Genome.fasta -o", paste0("./bams/",sample,"sorted.bam"),paste0("./bams/",sample,"bam"))
 #	run SysCommands in terminal
 
 #### CALL PEAKS with MACS2 use Ty1 Ab directly as control calling for both replicates combined ############################
