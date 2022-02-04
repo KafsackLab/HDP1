@@ -124,7 +124,7 @@ sample<-ldply(strsplit(R1,"R"))[,1]
 SysCommands<-paste(
   "trimmomatic PE -threads 4",
   paste0("./reads/",R1),
-  paste0("./reads/",R1),
+  paste0("./reads/",R2),
   paste0("./reads/",sample,"R1.paired.fq.gz"),
   paste0("./reads/",sample,"R1.unpaired.fastq.gz"),
   paste0("./reads/",sample,"R2.paired.fq.gz"),
@@ -140,10 +140,8 @@ SysCommands<-paste0(
   sample,
   '\\tPL:Illumina\\tLB:lib\\tPU:unit"',
   ' ./genome/PlasmoDB-51_Pfalciparum3D7_Genome.fasta ',
-  #paste0("./reads/",sample,"R1.paired.fq.gz "),
-  #paste0("./reads/",sample,"R2.paired.fq.gz "),
-  paste0("./reads/",R1," "),
-  paste0("./reads/",R2," "),
+  paste0("./reads/",sample,"R1.paired.fq.gz "),
+  paste0("./reads/",sample,"R2.paired.fq.gz "),
   '| samtools view -hbf 2 - | samtools sort -n --threads 30 --reference ./genome/PlasmoDB-51_Pfalciparum3D7_Genome.fasta -O BAM -o ',
   paste0("./bams/",sample,"_sorted.bam"),'\n')
 
